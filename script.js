@@ -52,3 +52,24 @@ remove.forEach((btn, i) => {
   });
 });
 
+let themeToggle = document.getElementById("toggle");
+
+let link = document.querySelector("link[rel='stylesheet'");
+
+themeToggle.addEventListener(
+  "click",
+  function () {
+    let image = themeToggle.children[0];
+    let sheme = themeToggle.dataset.sheme;
+    if (sheme === "light") {
+      image.src = "assets/images/icon-sun.svg";
+      link.href = "./css/dark.css";
+      themeToggle.dataset.sheme = "dark";
+    } else if (sheme === "dark") {
+      image.src = "assets/images/icon-moon.svg";
+      link.href = "./css/light.css";
+      themeToggle.dataset.sheme = "light";
+    }
+  },
+  true
+);
